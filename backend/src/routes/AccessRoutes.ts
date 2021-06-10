@@ -1,13 +1,11 @@
-import express, { Request, Response } from 'express';
+import express from 'express';
+
+import { makeAccessController } from '../controllers/AccessController';
 
 const router = express.Router();
 
-router.post('/signup', (req: Request, res: Response) => {
-  res.status(204).send();
-});
+router.post('/signup', makeAccessController().signup);
 
-router.post('/login', (req: Request, res: Response) => {
-  res.status(204).send();
-});
+router.post('/login', makeAccessController().login);
 
 export default router;
